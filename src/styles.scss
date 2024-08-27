@@ -40,8 +40,10 @@ $site-theme: mat.define-theme(
 @tailwind utilities;
 
 :root {
-  --app-background: #f0f4f9;
-  --app-footer-color: #007acc;
+  // --app-background: #f0f4f9;
+
+  --app-background: #1a202c;
+  --app-footer-color: #1a202c;
 
   --mdc-filled-button-container-color: #007acc;
   --mdc-text-button-label-text-color: #007acc;
@@ -56,17 +58,20 @@ $site-theme: mat.define-theme(
   --mdc-outlined-text-field-outline-color: #007acc !important;
   --mdc-outlined-text-field-hover-outline-color: #007acc !important;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --app-background: #1a202c;
-  }
-
-  footer {
-    color: #dadce0;
-    background-color: #1e1f20;
-  }
+footer {
+  color: #dadce0;
+  background-color: var(--app-footer-color);
 }
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --app-background: #1a202c;
+//   }
+
+//   footer {
+//     color: #dadce0;
+//     background-color: #1e1f20;
+//   }
+// }
 
 * {
   font-family: "Roboto", sans-serif;

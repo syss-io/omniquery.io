@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, ElementRef, ViewChild } from "@angular/core";
 import { MatButtonModule } from "@angular/material/button";
 
 @Component({
@@ -8,4 +8,19 @@ import { MatButtonModule } from "@angular/material/button";
   templateUrl: "./home.component.html",
   styleUrl: "./home.component.scss",
 })
-export class HomeComponent {}
+export class HomeComponent {
+  @ViewChild("footer") footer?: ElementRef;
+  @ViewChild("header") header?: ElementRef;
+
+  get height(): string {
+    if (!this.footer || !this.header) {
+      return "0px";
+    }
+
+    const height =
+      this.footer.nativeElement.offsetHeight +
+      this.header.nativeElement.offsetHeight;
+      
+    return `calc(100vh - ${height}px)`;
+  }
+}
