@@ -1,0 +1,89 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$site-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+:root {
+  @include mat.all-component-themes($site-theme);
+}
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($site-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($site-theme);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-background: #f0f4f9;
+  --app-footer-color: #007acc;
+
+  --mdc-filled-button-container-color: #007acc;
+  --mdc-text-button-label-text-color: #007acc;
+  --mat-text-button-state-layer-color: #007acc;
+  --mat-snack-bar-button-color: #007acc;
+
+  --mdc-text-button-label-text-color: #007acc;
+  --mdc-outlined-text-field-focus-outline-color: #007acc;
+  --mdc-outlined-text-field-label-color: #007acc;
+  --mdc-outlined-text-field-caret-color: #007acc;
+  --mdc-outlined-text-field-focus-label-text-color: #007acc;
+  --mdc-outlined-text-field-outline-color: #007acc !important;
+  --mdc-outlined-text-field-hover-outline-color: #007acc !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-background: #1a202c;
+  }
+
+  footer {
+    color: #dadce0;
+    background-color: #1e1f20;
+  }
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: var(--app-background);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
